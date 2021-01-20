@@ -1,31 +1,38 @@
 .app {
   text-align: center;
   padding: 0 24px;
-}
-
-.logo {
-  animation: logo-spin infinite 20s linear;
-  height: 240px;
-  width: 240px;
-  pointer-events: none;
-}
-
-.text {
-  margin-top: 64px;
+  height: 100vh;
 }
 
 .header {
-  padding-top: 30%;
-  background-color: #282c34;
-  font-size: 40px;
-  color: white;
+  padding-top: 5%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+  width: 100%;
+  padding: 0 20%;
+  box-sizing: border-box;
+}
+
+.bottom {
+  margin: 90% auto 0;
+  width: 50%;
+}
+
+.bottom-text {
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 1.2;
+  font-family: 'NSimSun';
+  margin-bottom: 25rpx;
+  text-align: left;
+}
+
+.button {
+  color: #283848;
+  background: rgb(245, 225, 172);
+  height: 80rpx;
+  border-radius: 40rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
 }
