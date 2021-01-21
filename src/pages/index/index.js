@@ -33,12 +33,11 @@ export default () => {
               open-type='getUserInfo'
               bindgetuserinfo={value => {
                 console.log(value);
-              }}
-
-              // navigateTo({
-              //   url: '../form/index',
-              // });
-            >
+                // TODO: 加到状态管理里
+                navigateTo({
+                  url: '../form/index',
+                });
+              }}>
               开始测试
             </Button>
           </View>
