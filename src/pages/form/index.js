@@ -54,13 +54,17 @@ export default () => {
               '11 Pacific Ocean',
               '12 International Date Line',
             ]}
-            bindchange=''>
+            bindchange={value => console.log(value)}>
             <View className={styles.picker}>选择您生日的出生时区</View>
           </Picker>
-          <Picker mode='date' start='2015-09-01' end='2017-09-01' bindchange=''>
+          <Picker
+            mode='date'
+            start='2015-09-01'
+            end='2017-09-01'
+            bindchange={value => console.log(value)}>
             <View className={styles.picker}>选择您生日的公历年份</View>
           </Picker>
-          <Picker mode='time' value='' bindchange=''>
+          <Picker mode='time' value='' bindchange={value => console.log(value)}>
             <View className={styles.picker}>选择您生日的具体时间</View>
           </Picker>
 
@@ -70,8 +74,9 @@ export default () => {
           <Button
             className={styles.button}
             onClick={() => {
+              // TODO: 请求, 成功回调就是to description
               navigateTo({
-                url: '../feedback/index',
+                url: '../description/index',
               });
             }}>
             提交

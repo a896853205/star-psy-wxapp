@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { View, Image, Text, Button } from 'remax/wechat';
+import { View, Image, Text, Button, login } from 'remax/wechat';
 import { navigateTo } from 'remax/one';
 import styles from './index.css';
 
@@ -30,9 +30,10 @@ export default () => {
           <View>
             <Button
               className={styles.button}
-              open-type='getUserInfo'
-              bindgetuserinfo={value => {
-                console.log(value);
+              openType='getUserInfo'
+              bindgetuserinfo={async value => {
+                let code = await login();
+                console.log('code:', code);
                 // TODO: 加到状态管理里
                 navigateTo({
                   url: '../form/index',
