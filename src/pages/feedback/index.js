@@ -1,11 +1,57 @@
 import * as React from 'react';
 
-import { View, Image, Text, Button } from 'remax/wechat';
+import {
+  View,
+  Image,
+  Text,
+  Button,
+  Picker,
+  request,
+  getStorageSync,
+  showToast,
+} from 'remax/wechat';
 
 import back from '../../../public/des/background.png';
 import styles from './index.css';
 
+const rangeFc = (max, min) => {
+  let res = [];
+
+  for (let i = max; i >= min; i--) {
+    res.push(i);
+  }
+
+  return res;
+};
 export default () => {
+  const [isFeedback, setIsFeedback] = React.useState(false);
+  const saveFeedback = React.useCallback(mark => {
+    request({
+      url: `${process.env.REMAX_APP_DOMAIN}/feedback`,
+      method: 'POST',
+      data: {
+        userId: getStorageSync('userId'),
+        descriptionId: getStorageSync('descriptionId'),
+        mark: rangeFc(100, 1)[mark],
+      },
+      success: () => {
+        showToast({
+          title: '感谢反馈.',
+          icon: 'success',
+          duration: 2000,
+        });
+        setIsFeedback(true);
+      },
+      error: () => {
+        showToast({
+          title: '网络错误,请稍后再试.',
+          icon: 'error',
+          duration: 2000,
+        });
+      },
+    });
+  }, []);
+
   return (
     <View className={styles.app}>
       <View className={styles.header}>
@@ -59,7 +105,14 @@ export default () => {
           </View>
         </View>
         <View>请针对此次描述服务评价打分：</View>
-        <Button className={styles.button}>1-100</Button>
+        <Picker
+          mode='selector'
+          range={rangeFc(100, 1)}
+          bindchange={e => saveFeedback(e.detail.value)}>
+          <Button className={styles.button}>
+            {isFeedback ? '感谢反馈' : '1-100'}
+          </Button>
+        </Picker>
       </View>
     </View>
   );

@@ -8,7 +8,7 @@
   "author": "Qccccc's laptop <896853205@qq.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "remax build -t wechat -w",
+    "dev": "cross-env NODE_ENV=development remax build -t wechat -w",
     "build": "cross-env NODE_ENV=production remax build -t wechat"
   },
   "dependencies": {
