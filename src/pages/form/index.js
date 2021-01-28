@@ -53,6 +53,7 @@ export default () => {
   const [timeZone, setTimeZone] = React.useState(-1);
   const [date, setDate] = React.useState(undefined);
   const [time, setTime] = React.useState(undefined);
+  const image = `${process.env.REMAX_APP_DOMAIN}/image?name=subTitle.png`;
 
   const saveUser = React.useCallback((timeZone, date, time, callback) => {
     if (timeZone < 0) {
@@ -113,11 +114,12 @@ export default () => {
     });
   }, []);
 
+
   return (
     <View className={styles.app}>
       <View className={styles.header}>
         <Image
-          src='/form/subTitle.png'
+          src={image}
           alt='title'
           mode='widthFix'
           className={styles.title}

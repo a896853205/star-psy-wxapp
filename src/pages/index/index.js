@@ -7,6 +7,7 @@ import styles from './index.css';
 import back from './background';
 export default () => {
   // TODO: 图片加到后端
+  const image = `${process.env.REMAX_APP_DOMAIN}/image?name=title.png`;
   return (
     <View
       className={styles.app}
@@ -16,7 +17,7 @@ export default () => {
       }}>
       <View className={styles.header}>
         <Image
-          src='/auth/title.png'
+          src={image}
           alt='title'
           mode='widthFix'
           className={styles.title}

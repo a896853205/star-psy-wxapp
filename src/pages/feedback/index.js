@@ -11,7 +11,6 @@ import {
   showToast,
 } from 'remax/wechat';
 
-import back from '../../../public/des/background.png';
 import styles from './index.css';
 
 const rangeFc = (max, min) => {
@@ -25,6 +24,10 @@ const rangeFc = (max, min) => {
 };
 export default () => {
   const [isFeedback, setIsFeedback] = React.useState(false);
+  const back = `${process.env.REMAX_APP_DOMAIN}/image?name=background.png`;
+  const imageSubTitle = `${process.env.REMAX_APP_DOMAIN}/image?name=subTitle.png`;
+  const imageDownload = `${process.env.REMAX_APP_DOMAIN}/image?name=download.png`;
+
   const saveFeedback = React.useCallback(mark => {
     request({
       url: `${process.env.REMAX_APP_DOMAIN}/feedback`,
@@ -56,7 +59,7 @@ export default () => {
     <View className={styles.app}>
       <View className={styles.header}>
         <Image
-          src='/form/subTitle.png'
+          src={imageSubTitle}
           alt='title'
           mode='widthFix'
           className={styles.title}
@@ -91,7 +94,7 @@ export default () => {
             <Image
               className={styles.image}
               mode='widthFix'
-              src='/feedback/download.png'
+              src={imageDownload}
             />
             <Text>微信讨论群</Text>
           </View>
@@ -99,7 +102,7 @@ export default () => {
             <Image
               className={styles.image}
               mode='widthFix'
-              src='/feedback/download.png'
+              src={imageDownload}
             />
             <Text>公众号</Text>
           </View>

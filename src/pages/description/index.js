@@ -3,10 +3,10 @@ import * as React from 'react';
 import { Button, View, getStorageSync } from 'remax/wechat';
 import { navigateTo } from 'remax/one';
 
-import back from '../../../public/des/background.png';
 import styles from './index.css';
 
 export default () => {
+  const back = `${process.env.REMAX_APP_DOMAIN}/image?name=background.png`; 
   return (
     <View className={styles.box}>
       <View
