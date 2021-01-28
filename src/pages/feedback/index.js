@@ -24,7 +24,6 @@ const rangeFc = (max, min) => {
 };
 export default () => {
   const [isFeedback, setIsFeedback] = React.useState(false);
-  const back = `${process.env.REMAX_APP_DOMAIN}/image?name=background.png`;
   const imageSubTitle = `${process.env.REMAX_APP_DOMAIN}/image?name=subTitle.png`;
   const imageDownload = `${process.env.REMAX_APP_DOMAIN}/image?name=download.png`;
 
@@ -60,17 +59,16 @@ export default () => {
       <View className={styles.header}>
         <Image
           src={imageSubTitle}
-          alt="title"
-          mode="widthFix"
+          alt='title'
+          mode='widthFix'
           className={styles.title}
         />
       </View>
       <View
         className={styles.description}
         style={{
-          backgroundImage: `url(${back})`,
-        }}
-      >
+          backgroundImage: `url(${process.env.REMAX_APP_DOMAIN}/image?name=background.png)`,
+        }}>
         <View className={styles['description-text']}>
           <View className={styles['description-item']}>
             “施莱贝里”的描述一般针对正常成长环境下成年人的先天性格特征的描述，如果用户出现以下情况当另作看待：
@@ -94,7 +92,7 @@ export default () => {
           <View className={styles['qrcode-box']}>
             <Image
               className={styles.image}
-              mode="widthFix"
+              mode='widthFix'
               src={imageDownload}
             />
             <Text>微信讨论群</Text>
@@ -102,7 +100,7 @@ export default () => {
           <View className={styles['qrcode-box']}>
             <Image
               className={styles.image}
-              mode="widthFix"
+              mode='widthFix'
               src={imageDownload}
             />
             <Text>公众号</Text>
@@ -110,10 +108,9 @@ export default () => {
         </View>
         <View>请针对此次描述服务评价打分：</View>
         <Picker
-          mode="selector"
+          mode='selector'
           range={rangeFc(100, 1)}
-          bindchange={e => saveFeedback(e.detail.value)}
-        >
+          bindchange={e => saveFeedback(e.detail.value)}>
           <Button className={styles.button}>
             {isFeedback ? '感谢反馈' : '1-100'}
           </Button>
