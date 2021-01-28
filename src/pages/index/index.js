@@ -6,7 +6,6 @@ import styles from './index.css';
 
 import back from './background';
 export default () => {
-  // TODO: 图片加到后端
   const image = `${process.env.REMAX_APP_DOMAIN}/image?name=title.png`;
   return (
     <View
@@ -14,12 +13,13 @@ export default () => {
       style={{
         backgroundImage: `url(${back})`,
         backgroundSize: 'cover',
-      }}>
+      }}
+    >
       <View className={styles.header}>
         <Image
           src={image}
-          alt='title'
-          mode='widthFix'
+          alt="title"
+          mode="widthFix"
           className={styles.title}
         />
         <View className={styles.bottom}>
@@ -32,7 +32,7 @@ export default () => {
           <View>
             <Button
               className={styles.button}
-              openType='getUserInfo'
+              openType="getUserInfo"
               bindgetuserinfo={async value => {
                 if (value) {
                   // 加到状态管理里
@@ -42,7 +42,8 @@ export default () => {
                     url: '../form/index',
                   });
                 }
-              }}>
+              }}
+            >
               开始测试
             </Button>
           </View>

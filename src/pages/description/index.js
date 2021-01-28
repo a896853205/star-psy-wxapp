@@ -6,14 +6,15 @@ import { navigateTo } from 'remax/one';
 import styles from './index.css';
 
 export default () => {
-  const back = `${process.env.REMAX_APP_DOMAIN}/image?name=background.png`; 
+  const back = `${process.env.REMAX_APP_DOMAIN}/image?name=background.png`;
   return (
     <View className={styles.box}>
       <View
         className={styles.description}
         style={{
           backgroundImage: `url(${back})`,
-        }}>
+        }}
+      >
         <View className={styles['description-text']}>
           {getStorageSync('description')}
         </View>
@@ -25,7 +26,8 @@ export default () => {
           navigateTo({
             url: '../feedback/index',
           });
-        }}>
+        }}
+      >
         继续
       </Button>
     </View>

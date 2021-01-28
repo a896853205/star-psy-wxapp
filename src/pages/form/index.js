@@ -114,33 +114,33 @@ export default () => {
     });
   }, []);
 
-
   return (
     <View className={styles.app}>
       <View className={styles.header}>
         <Image
           src={image}
-          alt='title'
-          mode='widthFix'
+          alt="title"
+          mode="widthFix"
           className={styles.title}
         />
       </View>
       <View className={styles.form}>
         <Form>
           <Picker
-            mode='selector'
+            mode="selector"
             range={timeZoneRange}
-            bindchange={e => setTimeZone(e.detail.value)}>
+            bindchange={e => setTimeZone(e.detail.value)}
+          >
             <View className={styles.picker}>
               {timeZone >= 0 ? timeZoneRange[timeZone] : '选择您生日的出生时区'}
             </View>
           </Picker>
-          <Picker mode='date' bindchange={e => setDate(e.detail.value)}>
+          <Picker mode="date" bindchange={e => setDate(e.detail.value)}>
             <View className={styles.picker}>
               {date ? date : '选择您生日的公历年份'}
             </View>
           </Picker>
-          <Picker mode='time' bindchange={e => setTime(e.detail.value)}>
+          <Picker mode="time" bindchange={e => setTime(e.detail.value)}>
             <View className={styles.picker}>
               {time ? time : '选择您生日的具体时间'}
             </View>
@@ -157,7 +157,8 @@ export default () => {
                   url: '../description/index',
                 });
               });
-            }}>
+            }}
+          >
             提交
           </Button>
         </Form>
