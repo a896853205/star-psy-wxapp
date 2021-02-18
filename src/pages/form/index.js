@@ -16,6 +16,7 @@ import { navigateTo } from 'remax/one';
 import styles from './index.css';
 
 const timeZoneRange = [
+  '-8 中国',
   '0 Greenwich, England',
   '-1 Mid Europe/Africa',
   '-2 E Europe, E Central Africa',
@@ -28,7 +29,6 @@ const timeZoneRange = [
   '-6 Almaty (Alma ATA), Russia',
   '-6.5 Burma',
   '-7 W Mongolia',
-  '-8 中国',
   '-9 Japan',
   '-9.5 Mid Australia',
   '-10 Eastern Russia, Sydney, Australia',
@@ -86,10 +86,10 @@ export default () => {
       url: `${process.env.REMAX_APP_DOMAIN}/user`,
       method: 'POST',
       data: {
-        name: getStorageSync('nickName'),
-        year: date.split('-')[0],
-        month: date.split('-')[1],
-        day: date.split('-')[2],
+        name: '-',
+        year: date.split('/')[0],
+        month: date.split('/')[1],
+        day: date.split('/')[2],
         hour: time.split(':')[0],
         minute: time.split(':')[1],
         timeZone: timeZoneRange[timeZone],
@@ -133,12 +133,16 @@ export default () => {
               {timeZone >= 0 ? timeZoneRange[timeZone] : '选择您生日的出生时区'}
             </View>
           </Picker>
-          <Picker mode='date' bindchange={e => setDate(e.detail.value)}>
+          <Picker
+            mode='date'
+            bindchange={e => setDate(e.detail.value.replace(/-/g, '/'))}>
             <View className={styles.picker}>
               {date ? date : '选择您生日的公历年份'}
             </View>
           </Picker>
-          <Picker mode='time' bindchange={e => setTime(e.detail.value)}>
+          <Picker
+            mode='time'
+            bindchange={e => setTime(e.detail.value.replace(/-/g, '/'))}>
             <View className={styles.picker}>
               {time ? time : '选择您生日的具体时间'}
             </View>

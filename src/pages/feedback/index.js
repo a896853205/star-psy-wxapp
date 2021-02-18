@@ -3,12 +3,12 @@ import * as React from 'react';
 import {
   View,
   Image,
-  Text,
   Button,
   Picker,
   request,
   getStorageSync,
   showToast,
+  navigateTo,
 } from 'remax/wechat';
 
 import styles from './index.css';
@@ -43,6 +43,9 @@ export default () => {
           duration: 2000,
         });
         setIsFeedback(true);
+        navigateTo({
+          url: '../qrcode/index',
+        });
       },
       error: () => {
         showToast({
@@ -86,9 +89,9 @@ export default () => {
       </View>
       <View className={styles.content}>
         <View>
-          欢迎大家积极参与给与结果评分，帮助开发者更好完善内容，同时也欢迎加入公众号与微信群。
+          欢迎大家积极参与给与结果评分，帮助开发者更好完善内容，请针对此次描述服务评价打分：
         </View>
-        <View className={styles.qrcode}>
+        {/* <View className={styles.qrcode}>
           <View className={styles['qrcode-box']}>
             <Image
               className={styles.image}
@@ -105,17 +108,16 @@ export default () => {
             />
             <Text>公众号</Text>
           </View>
-        </View>
-        <View>请针对此次描述服务评价打分：</View>
-        <Picker
-          mode='selector'
-          range={rangeFc(100, 1)}
-          bindchange={e => saveFeedback(e.detail.value)}>
-          <Button className={styles.button}>
-            {isFeedback ? '感谢反馈' : '1-100'}
-          </Button>
-        </Picker>
+        </View> */}
       </View>
+      <Picker
+        mode='selector'
+        range={rangeFc(100, 1)}
+        bindchange={e => saveFeedback(e.detail.value)}>
+        <Button className={styles.button}>
+          {isFeedback ? '感谢反馈' : '1-100'}
+        </Button>
+      </Picker>
     </View>
   );
 };

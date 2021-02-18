@@ -31,16 +31,19 @@ export default () => {
             <Button
               className={styles.button}
               openType='getUserInfo'
-              bindgetuserinfo={async value => {
-                if (value) {
-                  // 加到状态管理里
-                  setStorageSync('nickName', value.detail.userInfo.nickName);
-                  setStorageSync('gender', value.detail.userInfo.gender);
-                  navigateTo({
-                    url: '../form/index',
-                  });
-                }
-              }}>
+              onClick={() => {
+                navigateTo({
+                  url: '../form/index',
+                });
+              }}
+              // bindgetuserinfo={async value => {
+              //   if (value) {
+              //     // 加到状态管理里
+              //     setStorageSync('nickName', value.detail.userInfo.nickName);
+              //     setStorageSync('gender', value.detail.userInfo.gender);
+              //   }
+              // }}>
+            >
               开始测试
             </Button>
           </View>
