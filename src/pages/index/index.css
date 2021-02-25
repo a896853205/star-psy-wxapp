@@ -15,19 +15,20 @@
 }
 
 .bottom {
-  margin: 90% auto 0;
-  width: 50%;
+  margin: 80% auto 0;
+  width: 70%;
 }
 
 .bottom-text {
   color: #fff;
-  font-size: 24rpx;
+  font-size: 34rpx;
   line-height: 1.2;
   margin-bottom: 25rpx;
   text-align: left;
 }
 
 .button {
+  width: 50%;
   color: #283848;
   background: rgb(245, 225, 172);
   height: 80rpx;

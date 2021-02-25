@@ -23,8 +23,7 @@ export default () => {
         <View className={styles.bottom}>
           <View className={styles['bottom-text']}>
             <Text>
-              “施莱贝里”是一款以特质流派为 依托的的人格测试程序，帮助人们
-              了解自我，展现自我。
+            “施莱贝里”是以特质人格流派和天文算法结合的测试程序。由于天体运动的不确定性，存在1-2天的误差。(如您发现描述不准可加或减一天再测）
             </Text>
           </View>
           <View>

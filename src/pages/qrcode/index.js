@@ -5,8 +5,6 @@ import { View, Image, Text } from 'remax/wechat';
 import styles from './index.css';
 
 export default () => {
-  const imageDownload = `${process.env.REMAX_APP_DOMAIN}/image?name=download.png`;
-
   return (
     <View
       className={styles.app}
@@ -36,16 +34,6 @@ export default () => {
         </View>
         <View className={styles['describe-item']}>
           关注我们公众号，加入讨论，也许你能更好的掌控自己的这一辈子.
-        </View>
-      </View>
-      <View className={styles.qrcode}>
-        <View className={styles['qrcode-box']}>
-          <Image className={styles.image} mode='widthFix' src={imageDownload} />
-          <Text>微信讨论群</Text>
-        </View>
-        <View className={styles['qrcode-box']}>
-          <Image className={styles.image} mode='widthFix' src={imageDownload} />
-          <Text>公众号</Text>
         </View>
       </View>
     </View>
