@@ -23,7 +23,7 @@ export default () => {
         <View className={styles.bottom}>
           <View className={styles['bottom-text']}>
             <Text>
-            “施莱贝里”是以特质人格流派和天文算法结合的测试程序。由于天体运动的不确定性，存在1-2天的误差。(如您发现描述不准可加或减一天再测）
+            “施莱贝里”是根据出生日期判定的一种特质人格算法。如您是刨腹产出生，请在原有出生日期加1-3天再测试。
             </Text>
           </View>
           <View>
